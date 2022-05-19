@@ -1,5 +1,5 @@
 function Sidebar() {
-    return <h2>Sidebar</h2>;
+    return <h2>Sidebar da sua doi</h2>;
 }
 
 export default Sidebar;
