@@ -1,14 +1,89 @@
 .wrapper {
-    height: var(--default-layout-header-height,60px);
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --search-bottom-width:52px;
+    
     width: 100%;
-    box-shadow:  1px 1px rgb(0 0 0 / 12%);
-    justify-content: center;
+    height: var(--default-layout-header-height,60px);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
+    justify-content: center;
 }
 
 .inner {
     height: 100%;
-    width: var(--default-layout-width-content, 1150px);
-    background-color: #ccc;
+    width: var(--default-layout-width-content,1150px);
+    display: flex;
+    align-items: center; // noi dung can giua
+    justify-content: space-between; // can giua
+}
+
+.logo {
 
 }
+.search {
+    position: relative;
+    width: 361px;
+    height: var(--search-height);
+    display: flex;
+    padding-left: 16px;
+    background-color: rgba(22, 24,35, 0.06);
+    border-radius: var(--search-border-radius); // bo vien cac goc
+    border: 1.5px solid transparent;
+
+    input {
+        flex: 1;
+        color: var(--black);
+        height: 100%;
+        font-size: 1.6rem;
+        background-color: transparent; // mau trong suot
+    }
+
+    // khi nhap chu vao input thi icon search doi mau den hon
+    input:not(:placeholder-shown) ~ .search-btn{
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: var(--search-bottom-width);
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacer)*2);
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+
+    // hien thi boder khi click chuot vao the input
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+.clear, 
+.loading {
+    position: absolute;
+    right: calc(var(--search-bottom-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.34) ;
+}
+.search-btn {
+    width: var(--search-bottom-width);
+    height: 100%;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+
+    // hover cho chinh cai button ben
+    &:hover {
+        cursor: pointer; // khi di chuot vao => hinh ngon tay
+        background: rgba(22, 24, 35, 0.03);
+    }
+
+    &:active {
+        background: rgba(22, 24, 35, 0.06);
+    }
+}
+
