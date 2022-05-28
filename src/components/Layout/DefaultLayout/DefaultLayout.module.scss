@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: column; // quay theo chieu doc
+    align-items: center; // can giua
+
+}
+
+.container {
+    width: var(--default-layout-width-content);
+    display: flex;
+}
+
+.content {
+    flex: 1;
+}
