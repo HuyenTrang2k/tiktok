@@ -56,12 +56,13 @@ function Header() {
             </Tippy>
 
             <div className={cx('actions')}>
-                <Button primary> 
-                    Log in
-                </Button>
+                <Button text> Upload </Button>
+                <Button primary> Log in </Button>
+                
             </div>
         </div>
     </header>;// target = _blank: mo trong tab moi
+    // custom riêng 1 button thì thêm className: className={cx('custom-btn-login')} vào button và custom nó bên file Header.module.scss
 }
 
 export default Header;

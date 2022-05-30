@@ -1,4 +1,9 @@
 .wrapper {
+    
+    display: inline-flex; // Hien thi noi dung luon o giua
+    align-items: center; // 
+    justify-content: center;
+
     min-width: 100px;
     padding: 9px 16px;
     border-radius: 4px;
@@ -9,28 +14,70 @@
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
+    user-select: none; // không select được nội dung 
+
+    // co them 1 button dung canh nua thi auto cach nhau 8px
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none; // mat hieu ung chuot
+        opacity: 0.5; // làm mờ
+
+    }
 }
 
-// button type: 3 types:
+.icon + .title ,
+.title + .icon {
+    margin-left: 8px;
+}
+
+// button type: 4 types:
+
+.rounded {
+    border-radius: 52px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    color: rgba(22, 24, 35, 0.75);
+    border-color: rgba(22, 24, 35, 0.12);
+    font-weight: 700px;
+    font-size: 14px;
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
 
 .primary {
     cursor: pointer;
     color: var(--white);
+    border-color: var(--primary);
     background-color: var(--primary);
 
     &:hover {
+        border-color: var(--primary);
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
     }
 }
 
 .outline{
-    border-color: var(--primary);
+    border-color: currentColor;
     color: var(--primary);
 
     &:hover {
+        border-color: currentColor;
         background-color: rgba(254, 44, 85, 0.06);
     }
 }
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 
 // button sizes
 .small {
